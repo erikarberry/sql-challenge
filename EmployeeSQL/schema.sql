@@ -1,27 +1,27 @@
 CREATE TABLE employees (
-	emp_no INT NOT NULL,
-	birth_date DATE NOT NULL,
-	first_name VARCHAR (25) NOT NULL,
-	last_name VARCHAR (25) NOT NULL,
-	gender VARCHAR (1) NOT NULL,
-	hire_date DATE NOT NULL,
+	emp_no INT,
+	birth_date DATE,
+	first_name VARCHAR (25),
+	last_name VARCHAR (25),
+	gender VARCHAR (1),
+	hire_date DATE,
 	PRIMARY KEY (emp_no)
 );
-	
+
 CREATE TABLE titles (
-	emp_no INT NOT NULL,
-	title VARCHAR (25) NOT NULL,
-	from_date DATE NOT NULL,
+	emp_no INT,
+	title VARCHAR (25),
+	from_date DATE,
 	to_date DATE,
 	FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
 	PRIMARY KEY (emp_no, title, from_date)
 );
 
 CREATE TABLE salaries(
-	emp_no INT NOT NULL,
-	salary INT NOT NULL,
-	from_date DATE NOT NULL,
-	to_date DATE NOT NULL,
+	emp_no INT,
+	salary INT,
+	from_date DATE,
+	to_date DATE,
 	FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
 	PRIMARY KEY (emp_no, from_date)
 );
@@ -34,20 +34,20 @@ CREATE TABLE departments(
 );
 
 CREATE TABLE dept_manager(
-	dept_no VARCHAR (5) NOT NULL,
-	emp_no INT NOT NULL,
-	from_date DATE NOT NULL,
-	to_date DATE NOT NULL,
+	dept_no VARCHAR (5),
+	emp_no INT,
+	from_date DATE,
+	to_date DATE,
 	FOREIGN KEY (dept_no) REFERENCES departments (dept_no),
 	FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
 	PRIMARY KEY (dept_no, emp_no)
 );
 
 CREATE TABLE dept_emp(
-	emp_no INT NOT NULL,
-	dept_no VARCHAR (5) NOT NULL,
-	from_date DATE NOT NULL,
-	to_date DATE NOT NULL,
+	emp_no INT,
+	dept_no VARCHAR (5),
+	from_date DATE,
+	to_date DATE,
 	FOREIGN KEY (dept_no) REFERENCES departments (dept_no),
 	FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
 	PRIMARY KEY (dept_no, emp_no)
