@@ -27,8 +27,8 @@ CREATE TABLE salaries(
 );
 
 CREATE TABLE departments(
-	dept_no VARCHAR (5) NOT NULL,
-	dept_name VARCHAR (50) NOT NULL,
+	dept_no VARCHAR (5),
+	dept_name VARCHAR (50),
 	PRIMARY KEY (dept_no),
 	UNIQUE (dept_name)
 );
